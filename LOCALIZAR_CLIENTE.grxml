@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grammar  version="1.0" xml:lang="pt-BR" xmlns="http://www.w3.org/2001/06/grammar" tag-format="swi-semantics/1.0" root="_ROOT_" >
+
+    <meta name="swirec_compile_parser" content="1"/>
+	
+	<meta content="MEANING" name="swirec_simple_result_key"/>
+	
+	<rule id="_ROOT_" scope="public">
+		<one-of>
+		
+			<item tag="MEANING = 'sim';"> 
+				<ruleref uri="#RESPOSTA_SIM_LOCALIZA"/>
+			</item>
+
+			<item tag="MEANING = 'sim';">
+				<ruleref uri="sub/sub_sim.grxml#SIM"/>
+			</item>	
+
+			<item tag="MEANING = 'nao';">  
+				<ruleref uri="#RESPOSTA_NAO_LOCALIZA"/>
+			</item>	
+
+			<item tag="MEANING = 'nao';">
+				<ruleref uri="sub/sub_nao.grxml#NAO"/>
+			</item>		
+
+			<item tag="MEANING = 'quem';">  
+				<ruleref uri="#QUEM"/>
+			</item>	
+
+			<item tag="MEANING = 'naoesta';">  
+				<ruleref uri="#NAO_LOCALIZA"/>
+			</item>					
+
+			<item tag="MEANING = 'repetir';">
+				<ruleref uri="sub/sub_repetir.grxml#REPETIR"/>
+			</item>	
+
+			<item tag="MEANING = 'aguardar';">
+				<ruleref uri="sub/sub_aguardar.grxml#AGUARDAR"/>
+			</item>	
+
+			<item tag="MEANING = 'vouchamar';">
+				<ruleref uri="sub/sub_vouchamar.grxml#VOUCHAMAR"/>
+			</item>	
+
+			<item tag="MEANING = 'ocupado';">  
+				<ruleref uri="#OCUPADO"/>
+			</item>	
+
+			<item tag="MEANING = 'naoexiste';">  
+				<ruleref uri="#NAO_EXISTE"/>
+			</item>			
+
+			<item tag="MEANING = 'falecido';">  
+				<ruleref uri="#FALECIDO"/>
+			</item>			
+
+		</one-of>	
+	</rule>
+
+	<rule id="FALECIDO">
+	    <one-of> 
+            <item> falecido </item>
+            <item> ele já morreu </item>
+			<item> ela já morreu </item>
+			<item> ele está morto </item>
+			<item> ela está morto </item>
+			<item> ele morreu </item>
+			<item> ela morreu </item>
+			<item> morreu </item>
+	    </one-of>
+	</rule>	
+
+	<rule id="NAO_EXISTE">
+		<one-of>
+			<item> não existe </item>
+			<item> não tem ninguem com esse nome </item>
+			<item> não tem ninguem com esse nome não </item>
+			<item> "não conheço" </item>
+			<item> "não conheço essa pessoa" </item>
+			<item> esse numero não é mais dele </item> 
+			<item> esse numero não é mais dela </item>
+			<item> "tem ninguém com esse nome não" </item>
+			<item> desconheço </item>
+			<item> "não sei quem é" </item>		
+			<item> "nem conheço" </item>		
+			<item> é engano </item>		
+			<item> foi engano </item>
+			<item> derão número errado </item>
+			<item> deram número errado </item>
+			<item> número errado </item>
+			<item> você ligou errado </item>
+			<item> não esse número não é dele </item>
+			<item> não esse número não é dela </item>
+			<item> não esse celular não é dele </item>
+			<item> não esse celular não é dela </item>
+			<item>
+				<one-of>
+					<item> moça </item>
+					<item> moço</item>
+					<item> querida </item>
+					<item> querido </item>
+				</one-of>
+				<one-of>
+					<item> ligou errado </item>
+					<item> essa pessoa não existe </item>
+					<item> não é esse nome não </item>
+				</one-of>
+			</item>
+		</one-of>
+	</rule>	
+
+	<rule id="OCUPADO">
+		<one-of>	
+			<item> não posso falar agora </item>
+			<item> liga depois </item>
+			<item> liga mais tarde </item>
+			<item> estou ocupado </item>
+			<item> ocupado </item>
+			<item> olha estou ocupado agora </item>
+			<item> estou sem tempo agora </item>
+		</one-of>	
+	</rule>
+
+	<rule id="NAO_LOCALIZA">
+		<one-of>
+			<item>
+				<one-of>
+					<item> é minha </item>
+					<item> é meu </item>
+					<item> não moça é meu </item>
+					<item> não moça é minha </item>
+					<item> não moço é meu </item>
+					<item> não moço é minha </item>
+				</one-of>
+				<one-of>
+					<item>pai</item>
+					<item>mãe</item>
+					<item>irmão</item>
+					<item>irmã</item>
+					<item>tia</item>
+					<item>tio</item>
+					<item>sogra</item>
+					<item>sogro</item>
+					<item>neto</item>
+					<item>neta</item>
+				</one-of>
+			</item>
+			<item>
+				<one-of>
+					<item>é o</item>
+					<item> eu sou </item>
+				</one-of>
+				<one-of>
+					<item>pai</item>
+					<item>mãe</item>
+					<item>irmão</item>
+					<item>irmã</item>
+					<item>tia</item>
+					<item>tio</item>
+					<item>sogra</item>
+					<item>sogro</item>
+					<item>neto</item>
+					<item>neta</item>
+					<item>filho</item>
+					<item>filha</item>
+				</one-of>
+				<one-of>
+					<item>dela</item>
+					<item>dele</item>
+				</one-of>
+			</item>
+			<item>
+				<one-of>
+					<item> moço </item>
+					<item> moça </item>
+				</one-of>
+				<one-of>
+					<item> ele </item>
+					<item> ela </item>
+					<item> meu pai </item>
+					<item> minha mãe </item>
+					<item> meu tio </item>
+					<item> minha tia </item>
+					<item> minha sogra </item>
+					<item> meu sogro </item>
+					<item> meu neto </item>
+					<item> minha neta </item>
+					<item> meu filho </item>
+					<item> minha filha </item>
+				</one-of>
+				<one-of>
+					<item> não se encontra </item>
+					<item> não se encontra quem seria </item>
+					<item> não se encontra o que seria </item>
+					<item> não se encontra o que deseja </item>
+					<item> não está </item>
+				</one-of>	
+			</item>
+		</one-of>
+		<item> não se encontra </item>
+		<item> não se encontra quem seria </item>
+		<item> não se encontra o que seria </item>
+		<item> não se encontra o que deseja </item>
+		<item> não está </item>
+	</rule>
+
+
+	<rule id="QUEM">
+		<one-of>
+			<item> o quê </item>		
+			<item> quem </item>
+			<item> com quem </item>
+			<item> com quem você quer falar </item>
+			<item> quem é </item>
+			<item> quem fala </item>
+			<item> de onde </item>
+			<item> de onde é </item>
+			<item> de onde fala </item>
+			<item> de onde que esta falando </item>
+			<item> "quem gostaria" </item>
+			<item> "quem deseja" </item>
+			<item> "quem está falando" </item>
+			<item> "o que você deseja" </item>
+			<item> como é o nome </item>
+		</one-of>
+	</rule>	
+
+	<rule id="RESPOSTA_NAO_LOCALIZA">
+		<one-of>
+			<item> "não sou eu" </item>
+			<item> "não sou eu não" </item>
+			<item> "não é eu" </item>
+			<item> "não mesmo" </item>
+			<item> "ele mudou" </item>
+			<item> "ela mudou" </item>
+			<item> não está falando com </item>
+		</one-of>
+	</rule> 
+
+
+	<rule id="RESPOSTA_SIM_LOCALIZA">
+		<one-of> 
+			<item> "pois não" </item>
+			<item> "pois sim" </item>
+			<item> am ram </item>
+			<item> exato </item>
+			<item> exatamente </item>
+			<item> exatamente isso </item>
+			<item> certo </item>
+			<item> afirmativo </item>
+			<item> claro </item>
+			<item> "claro que conheço" </item>
+			<item> conheço </item>
+			<item> "conheço sim" </item>
+			<item> "eu conheço" </item>
+			<item> sim sou eu </item>
+			<item> sou eu </item>
+			<item> ele mesmo </item>
+			<item> ela mesmo </item>
+			<item> eu mesmo </item>
+			<item> eu mesma </item>
+			<item> o próprio </item>
+			<item> a própria </item>
+			<item> é ele </item>
+			<item> é ela </item>
+			<item> ele </item>
+			<item> ela </item>
+			<item> isso </item>
+			<item> isso é ele </item>
+			<item> isso é ela </item>
+			<item> eu </item>
+			<item> é </item>
+			<item> opa </item>
+			<item> pode falar </item>
+			<item> fale </item>
+			<item> o que deseja </item>
+			<item> está falando com ele </item>
+			<item> está falando com ela </item>
+			<item> sou </item>
+		</one-of> 	
+	</rule>	
+
+</grammar>
